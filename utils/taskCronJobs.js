@@ -4,9 +4,8 @@ import userModel from "../models/user.model.js";
 
 
 const taskCronJobs = () => {
-  // per minute cron job
-  corn.schedule("* * * * *", async() => {
-    // corn.schedule("0 0 * * *", async () => {
+  // cron job runs every day at 12:00 AM
+  corn.schedule("0 0 * * *", async() => {
     try{
       console.log("Cron job executed successfully");
         const today = new Date();

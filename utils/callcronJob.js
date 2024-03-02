@@ -6,7 +6,8 @@ dotenv.config();
 const client = twilio(process.env.account_sid, process.env.auth_token);
 
 const callCronJobs = () => {
-  cron.schedule("* * * * *", async () => {
+  // cron job runs every day at 8:00 AM
+  cron.schedule("0 8 * * *", async () => {
     try {
       const users = await User.find({ priority: { $ne: null } }).sort({
         priority: 1,
